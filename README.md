@@ -5,6 +5,7 @@
 * Spring Boot
 * JPA
 * Maven
+* Spring Data
 
 ## Descrição
 

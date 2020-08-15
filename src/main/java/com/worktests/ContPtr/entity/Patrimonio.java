@@ -13,7 +13,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 
 @Entity
-@Table(name = "patrimonio")
+@Table(name = "Patrimonio")
 public class Patrimonio {
 	
 	@Id 
@@ -23,11 +23,11 @@ public class Patrimonio {
 	
 	@NotNull
 	@NotBlank
-	@Column(name = "nome")
+	@PrimaryKeyJoinColumn(name = "Usuario", referencedColumnName="nome")
 	private String nome;
 	
 	@NotNull
-    @PrimaryKeyJoinColumn(name = "marca", referencedColumnName="id")
+    @PrimaryKeyJoinColumn(name = "Marca", referencedColumnName="id")
 	private Long marcaId;
 	
 	@Column(name = "descricao")

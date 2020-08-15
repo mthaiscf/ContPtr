@@ -1,0 +1,6 @@
+-- Marcas :
+INSERT INTO Marca(nome) VALUES ('EISENBAHN');
+INSERT INTO Marca(nome) VALUES ('HEINEKEN');
+INSERT INTO Marca(nome) VALUES ('BUDWEISER');
+INSERT INTO Marca(nome) VALUES ('BRAHMA');
+INSERT INTO Marca(nome) VALUES ('SKOL');
