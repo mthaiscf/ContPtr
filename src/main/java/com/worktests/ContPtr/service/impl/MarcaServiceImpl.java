@@ -1,12 +1,9 @@
 package com.worktests.ContPtr.service.impl;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.worktests.ContPtr.entity.Marca;
 import com.worktests.ContPtr.service.MarcaService;
 import com.worktests.ContPtr.repository.MarcaRepository;
@@ -14,7 +11,6 @@ import com.worktests.ContPtr.repository.MarcaRepository;
 
 @Service
 public class MarcaServiceImpl implements MarcaService {
-	
 	
 	@Autowired
 	MarcaRepository marcaRepository;
@@ -36,10 +32,10 @@ public class MarcaServiceImpl implements MarcaService {
 
 	@Override
 	public void atualizarMarca(@Valid Marca marca, long id) {
-		Marca marcaupdate = marcaRepository.findById(id);		
-		if(marcaupdate != null) {
-			marcaupdate.setNome(marcaupdate.getNome());
-			marcaRepository.save(marcaupdate);
+		Marca marcaUpdate = marcaRepository.findById(id);		
+		if(marcaUpdate != null) {
+			marcaUpdate.setNome(marca.getNome());
+			marcaRepository.save(marcaUpdate);
 		}
 	}
 	

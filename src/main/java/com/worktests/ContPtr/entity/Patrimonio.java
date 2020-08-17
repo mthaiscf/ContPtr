@@ -3,13 +3,14 @@ package com.worktests.ContPtr.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import com.sun.istack.NotNull;
-import javax.persistence.Column;
 import javax.persistence.PrimaryKeyJoinColumn;
+
 
 
 @Entity
@@ -18,28 +19,27 @@ public class Patrimonio {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "numeroDoTombo")
 	private Long numeroDoTombo;
 	
 	@NotNull
 	@NotBlank
-	@PrimaryKeyJoinColumn(name = "Usuario", referencedColumnName="nome")
+	@PrimaryKeyJoinColumn(name="Usuario", referencedColumnName="nome")
 	private String nome;
 	
 	@NotNull
-    @PrimaryKeyJoinColumn(name = "Marca", referencedColumnName="id")
-	private Long marcaId;
+    @PrimaryKeyJoinColumn(name="Marca", referencedColumnName="id")
+	//private Long marcaId;
+	private Long marca;
 	
-	@Column(name = "descricao")
 	private String descricao;
 	
 	
 	
 	protected Patrimonio() {};
 	
-	public Patrimonio(String nome, Long marcaId, String descricao) {
+	public Patrimonio(String nome, Long marca, String descricao) {
 		this.nome = nome;
-		this.marcaId = marcaId;
+		this.marca = marca;
 		this.descricao = descricao;
 	}
 	
@@ -54,11 +54,11 @@ public class Patrimonio {
 	}
 
 	public Long getMarcaId() {
-		return marcaId;
+		return marca;
 	}
 
-	public void setMarcaId(Long marcaId) {
-		this.marcaId = marcaId;
+	public void setMarcaId(Long marca) {
+		this.marca = marca;
 	}
 
 	public String getDescricao() {

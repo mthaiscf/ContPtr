@@ -11,52 +11,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import com.worktests.ContPtr.service.MarcaService;
-import com.worktests.ContPtr.entity.Marca;
+import com.worktests.ContPtr.entity.Usuario;
+import com.worktests.ContPtr.service.UsuarioService;
 
 
 @Controller
-@RequestMapping(value="/marcas")
-public class MarcaController {
-	
-	@Autowired
-	private MarcaService marcaService;
+@RequestMapping(value="/usuarios")
+public class UsuarioController {
 
-	// LISTAGEM DE MARCAS (GET)
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	
+	// LISTAGEM DE USUÁRIOS (GET)
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<Marca>> findAll() {
-		List<Marca> list = marcaService.listarMarcas();
+	public ResponseEntity<List<Usuario>> findAll() {
+		List<Usuario> list = usuarioService.listarUsuarios();
 		return ResponseEntity.ok().body(list);
 	}
 	
-	// MOSTRAR MARCA (GET) pelo id
+	// MOSTRAR USUÁRIO (GET) pelo id
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Marca> findById(@PathVariable Integer id) {
-		Marca marca = marcaService.buscarMarca(id);
-		return ResponseEntity.ok().body(marca);
+	public ResponseEntity<Usuario> findById(@PathVariable Integer id) {
+		Usuario usuario = usuarioService.buscarUsuario(id);
+		return ResponseEntity.ok().body(usuario);
 	}
 	
-	// CADASTRO DE MARCA (POST)
+	// CADASTRO DE USUÁRIO (POST)
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody Marca marca){
-		marcaService.cadastrarMarca(marca);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(marca.getId()).toUri();			
+	public ResponseEntity<Void> insert(@Valid @RequestBody Usuario usuario){
+		usuarioService.cadastrarUsuario(usuario);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getEmail()).toUri();			
 		return ResponseEntity.created(uri).build();
 	}
 	
-	// ATUALIZACAO DE MARCA (PUT)
+	// ATUALIZACAO DE USUÁRIO (PUT)
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid  @RequestBody Marca marca, @PathVariable Integer id){
-		marcaService.atualizarMarca(marca, id);
+	public ResponseEntity<Void> update(@Valid  @RequestBody Usuario usuario, @PathVariable Integer id){
+		usuarioService.atualizarUsuario(usuario, id);
 		return ResponseEntity.noContent().build();
 	}
 	
-	// EXCLUSÃO DE MARCA (DELETE)
+	// EXCLUSÃO DE USUÁRIO (DELETE)
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
-		marcaService.excluirMarca(id);
+		usuarioService.excluirUsuario(id);
 		return ResponseEntity.noContent().build();
 	}
 	
-
 }

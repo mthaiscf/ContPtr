@@ -1,13 +1,11 @@
 package com.worktests.ContPtr.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
 import com.sun.istack.NotNull;
-
 import javax.persistence.Id;
+
 
 @Entity
 @Table(name = "Usuario")
@@ -16,17 +14,14 @@ public class Usuario {
 	@Id
 	@NotNull
 	@NotBlank
-	@Column(name = "email")
 	private String email;
 	
 	@NotNull
 	@NotBlank
-	@Column(name = "nome")
 	private String nome;
 	
 	@NotNull
 	@NotBlank
-	@Column(name = "senha")
 	private String senha;
 	
 	
