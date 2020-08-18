@@ -18,7 +18,7 @@ import com.worktests.ContPtr.service.UsuarioService;
 @Controller
 @RequestMapping(value="/usuarios")
 public class UsuarioController {
-
+	
 	@Autowired
 	private UsuarioService usuarioService;
 	

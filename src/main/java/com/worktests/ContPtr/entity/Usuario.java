@@ -26,6 +26,8 @@ public class Usuario {
 	
 	
 	
+	protected Usuario() {};
+	
 	public Usuario(String email, String nome, String senha) {
 		this.email = email;
 		this.nome = nome;
